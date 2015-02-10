@@ -182,12 +182,12 @@ class File extends Field
     {
         if ($safe) {
             try {
-                $this->file->move($this->path, $filename);
+                $this->file->move(public_path().'/'.$this->path, $filename);
                 $this->saved = $this->path. $filename;
             } catch (Exception $e) {
             }
         } else {
-            $this->file->move($this->path, $filename);
+            $this->file->move(public_path().'/'.$this->path, $filename);
             $this->saved = $this->path. $filename;
         }
         \Event::fire('rapyd.uploaded.'.$this->name);
