@@ -85,7 +85,7 @@ class Image extends File
     protected function imageProcess()
     {
         if ($this->saved) {
-            if (!$this->image)  $this->image = ImageManager::make($this->saved);
+            if (!$this->image)  $this->image = ImageManager::make(public_path().'/'.$this->saved);
 
             if ($this->image_callable) {
                 $callable = $this->image_callable;
@@ -111,8 +111,8 @@ class Image extends File
 
     public function thumb()
     {
-        if (!\File::exists($this->path.$this->old_value)) return '';
-        return '<img src="'.ImageManager::make($this->path.$this->old_value)->fit($this->preview[0], $this->preview[1])->encode('data-url').'" class="pull-left" style="margin:0 10px 10px 0">';
+        if (!\File::exists(public_path().'/'.$this->path.$this->old_value)) return '';
+        return '<img src="'.ImageManager::make(public_path().'/'.$this->path.$this->old_value)->fit($this->preview[0], $this->preview[1])->encode('data-url').'" class="pull-left" style="margin:0 10px 10px 0">';
     }
 
     public function build()
