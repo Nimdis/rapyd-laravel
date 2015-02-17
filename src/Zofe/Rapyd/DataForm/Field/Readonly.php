@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Form;
 
-class Disabled extends Field
+class Readonly extends Field
 {
-  public $type = "disabled";
+  public $type = "readonly";
 
   public function build()
   {
@@ -28,7 +28,7 @@ class Disabled extends Field
 
       case "create":
       case "modify":
-        $this->attributes['disabled'] = true;
+        $this->attributes['readonly'] = true;
         $output = Form::text($this->name, $this->value, $this->attributes);
         break;
 
