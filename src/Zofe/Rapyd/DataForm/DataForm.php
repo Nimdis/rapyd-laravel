@@ -424,7 +424,11 @@ class DataForm extends Widget
 
     public function prepareForm()
     {
-        $form_attr = array('url' => $this->process_url, 'class' => "form-horizontal", 'role' => "form", 'method' => $this->method);
+        $form_attr = array(
+            'url' => $this->process_url,
+            'class' => "form-horizontal ".strtolower(get_class($this->model)),
+            'role' => "form",
+            'method' => $this->method);
         $form_attr = array_merge($form_attr, $this->attributes);
 
         // See if we need a multipart form
