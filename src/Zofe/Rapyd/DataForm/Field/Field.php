@@ -352,7 +352,7 @@ abstract class Field extends Widget
 
             } else {
 
-                $this->new_value = HTML::xssfilter(Input::get($this->name));
+                $this->new_value = Input::get($this->name);
             }
         } elseif (($this->action == "insert") && ($this->insert_value != null)) {
             $this->new_value = $this->insert_value;
